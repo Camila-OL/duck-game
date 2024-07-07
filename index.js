@@ -78,16 +78,18 @@ function exibirArea() {
                     rpaElement = document.querySelector('.rpa');
                 }
 
-                if (rpaElement.src.includes(clickedItem.imgUrl)) {
+                if (rpaElement.src === new URL(clickedItem.imgUrl, location.href).href) {
                     rpaElement.src = '';
                     rpaElement.style.width = '0';
                     rpaElement.style.left = '0';
                     rpaElement.style.top = '0';
+                    
                 } else {
                     rpaElement.src = clickedItem.imgUrl;
                     rpaElement.style.width = clickedItem.width;
-                    rpaElement.style.left = clickedItem.left;
-                    rpaElement.style.top = clickedItem.top;
+                    rpaElement.style.left = clickedItem.left || 'initial';
+                    rpaElement.style.top = clickedItem.top || 'initial';
+                    
                 }
             }
         } else {

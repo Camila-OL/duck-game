@@ -1,14 +1,14 @@
 const clothes = [
     { imgUrl: "./images-duck-game/blus_saia-removebg-preview.png", width: '210px', top: '19%', left: '42%' },
-    { imgUrl: "./images-duck-game/blusin_rosa-removebg-preview.png", width: '140px', top: '21%', left: '45%' },
-    { imgUrl: "./images-duck-game/blusin-removebg-preview.png", width: '170px', top: '21%', left: '44%' },
+    { imgUrl: "./images-duck-game/blusin_rosa-removebg-preview.png", width: '140px', height: '70px', top: '40%', left: '15%' },
+    { imgUrl: "./images-duck-game/blusin-removebg-preview.png", width: '170px', height: '80px', top: '40%', left: '8%' },
     { imgUrl: "./images-duck-game/calca-removebg-preview.png", width: '165px', top: '33%', left: '44%' },
     { imgUrl: "./images-duck-game/conjunto_smile-removebg-preview.png", width: '195px', top: '21%', left: '43%' },
     { imgUrl: "./images-duck-game/macac_duck-removebg-preview.png", width: '210px', top: '19%', left: '43%' },
     { imgUrl: "./images-duck-game/saia-removebg-preview.png", width: '160px', top: '33%', left: '44%' },
-    { imgUrl: "./images-duck-game/sap_listra-removebg-preview.png", width: '140px', top: '43%', left: '45%' },
-    { imgUrl: "./images-duck-game/sap_rosa-removebg-preview.png", width: '140px', top: '41%', left: '45%' },
-    { imgUrl: "./images-duck-game/vestido-removebg-preview.png", width: '180px', top: '21%', left: '44%' }
+    { imgUrl: "./images-duck-game/sap_listra-removebg-preview.png", width: '140px', height: '50px', top: '83%', left: '15%' },
+    { imgUrl: "./images-duck-game/sap_rosa-removebg-preview.png", width: '140px', height: '50px', top: '83%', left: '15%' },
+    { imgUrl: "./images-duck-game/vestido-removebg-preview.png", width: '180px', height: '120px', top: '40%', left: '8%' }
 ];
 
 const clothes1 = [
@@ -17,6 +17,7 @@ const clothes1 = [
     { imgUrl: "./images-duck-game/conj-duck1.png", width: '210px' },
     { imgUrl: "./images-duck-game/conj-smile1.png", width: '210px' },
     { imgUrl: "./images-duck-game/saia1.png", width: '210px' },
+    { imgUrl: "./images-duck-game/vestido1.png", width: '210px' },
 ];
 
 const clothesMap = {
@@ -25,6 +26,7 @@ const clothesMap = {
     "./images-duck-game/conjunto_smile-removebg-preview.png": "./images-duck-game/conj-smile1.png",
     "./images-duck-game/macac_duck-removebg-preview.png": "./images-duck-game/conj-duck1.png",
     "./images-duck-game/saia-removebg-preview.png": "./images-duck-game/saia1.png",
+    "./images-duck-game/vestido-removebg-preview.png": "./images-duck-game/vestido1.png",
 };
 
 function exibirArea() {
@@ -61,23 +63,17 @@ function exibirArea() {
                     duckElement.style.width = matchedItem.width;
                     duckElement.style.left = matchedItem.left || 'initial';
                     duckElement.style.top = matchedItem.top || 'initial';
+                
                 }
             } else {
                 let rpaElement;
-                if (clickedItem.imgUrl === './images-duck-game/blusin_rosa-removebg-preview.png') {
-                    document.querySelector('.duck').classList.add('blusinRosa');
-                } else {
-                    document.querySelector('.duck').classList.remove('blusinRosa');
-                }
 
-                if (clickedItem.imgUrl === './images-duck-game/calca-removebg-preview.png' || clickedItem.imgUrl === './images-duck-game/saia-removebg-preview.png') {
-                    rpaElement = document.querySelector('.rpa1');
-                } else if (clickedItem.imgUrl === './images-duck-game/sap_listra-removebg-preview.png' || clickedItem.imgUrl === './images-duck-game/sap_rosa-removebg-preview.png') {
+                if (clickedItem.imgUrl === './images-duck-game/sap_listra-removebg-preview.png' || clickedItem.imgUrl === './images-duck-game/sap_rosa-removebg-preview.png') {
                     rpaElement = document.querySelector('.rpa2');
                 } else {
                     rpaElement = document.querySelector('.rpa');
                 }
-
+                
                 if (rpaElement.src === new URL(clickedItem.imgUrl, location.href).href) {
                     rpaElement.src = '';
                     rpaElement.style.width = '0';
@@ -87,9 +83,9 @@ function exibirArea() {
                 } else {
                     rpaElement.src = clickedItem.imgUrl;
                     rpaElement.style.width = clickedItem.width;
+                    rpaElement.style.height = clickedItem.height;
                     rpaElement.style.left = clickedItem.left || 'initial';
                     rpaElement.style.top = clickedItem.top || 'initial';
-                    
                 }
             }
         } else {

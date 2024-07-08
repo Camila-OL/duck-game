@@ -24,99 +24,32 @@ body {
     display: flex;
     justify-content: center;
 }
-.duck .duckImg {
+.duck {
     position: relative;
+    overflow: hidden;
     width: 200px;
-    margin: 5%;
+    height: 420px;
+    background-color: blue;
 }
-.rpa, .rpa1, .rpa2{
+.duckImg, .rpa, .rpa2 {
     position: absolute;
-    width: 0; 
-    height: auto;
     top: 0;
     left: 0;
+    width: 100%; /* Preenche a largura total da div principal */
+    height: 100%; /* Preenche a altura total da div principal */
+
+}
+.duck .duckImg {
+    position: absolute;
+    z-index: 1;
+    width: 200px;
+}
+.rpa, .rpa2{
+    position: absolute;
+    z-index: 2;
 }
 .clothes {
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
 }
-
-/* Celulares Pequenos */
-@media (max-width: 320px) {
-    .duck img:nth-child(2) {
-        margin-left: -21%;
-        margin-top: -10%;
-    }
-    .duck img:nth-child(4) {
-        margin-left: -17%;
-        margin-top: -20%;
-    }
-    .blusinRosa img:nth-child(2){
-        margin-left: -16%;
-    }
-}
-
-/* Celulares Médios */
-@media (min-width: 321px) and (max-width: 375px) {
-    .duck img:nth-child(2) {
-        margin-left: -19%;
-        margin-top: -10%;
-    }
-    .duck img:nth-child(4) {
-        margin-left: -15%;
-        margin-top: -19%;
-    }
-    .blusinRosa img:nth-child(2){
-        margin-left: -15%;
-    }
-}
-
-/* Celulares Grandes */
-@media (min-width: 376px) and (max-width: 425px) {
-    .duck img:nth-child(2) {
-        margin-left: -14%;
-        margin-top: -8%;
-    }
-    .duck img:nth-child(4) {
-        margin-left: -11%;
-        margin-top: -15%;
-    }
-    .blusinRosa img:nth-child(2){
-        margin-left: -11%;
-        margin-top: -7%;
-    }
-}
-
-/* Tablets */
-@media (min-width: 426px) and (max-width: 768px) {
-    .duck img:nth-child(2) {
-        margin-left: -6%;
-        margin-top: -5%;
-    }
-    .duck img:nth-child(4) {
-        margin-left: -5%;
-        margin-top: -8%;
-    }
-    .blusinRosa img:nth-child(2){
-        margin-left: -5%;
-        margin-top: -4%;
-    }
-}
-
-/* Tablets Grandes */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .duck img:nth-child(2) {
-        margin-left: -3%;
-        margin-top: -3%;
-    }
-    .duck img:nth-child(4) {
-        margin-left: -2%;
-        margin-top: -6%;
-    }
-    .blusinRosa img:nth-child(2){
-        margin-left: -2%;
-        margin-top: -3%;
-    }
-}
-

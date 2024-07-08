@@ -28,8 +28,8 @@ body {
     position: relative;
     overflow: hidden;
     width: 200px;
-    height: 420px;
-    background-color: blue;
+    height: 490px;
+    margin: 10%;
 }
 .duckImg, .rpa, .rpa2 {
     position: absolute;
@@ -47,6 +47,7 @@ body {
 .rpa, .rpa2{
     position: absolute;
     z-index: 2;
+    display: none;
 }
 .clothes {
     overflow-y: scroll;

@@ -70,8 +70,10 @@ function exibirArea() {
 
                 if (clickedItem.imgUrl === './images-duck-game/sap_listra-removebg-preview.png' || clickedItem.imgUrl === './images-duck-game/sap_rosa-removebg-preview.png') {
                     rpaElement = document.querySelector('.rpa2');
+                    document.querySelector('.rpa2').style.display = 'block'
                 } else {
                     rpaElement = document.querySelector('.rpa');
+                    document.querySelector('.rpa').style.display = 'block'
                 }
                 
                 if (rpaElement.src === new URL(clickedItem.imgUrl, location.href).href) {

@@ -29,6 +29,16 @@ const clothesMap = {
     "./images-duck-game/vestido-removebg-preview.png": "./images-duck-game/vestido1.png",
 };
 
+document.getElementById('enterButton').addEventListener('click', function() {
+    const audio = document.querySelector('.music');
+    audio.play().catch(error => {
+        console.error('Erro ao reproduzir o áudio:', error);
+    });
+
+    // Ocultar a tela de boas-vindas
+    document.getElementById('welcomeScreen').style.display = 'none';
+});
+
 function exibirArea() {
     document.querySelector('.name').style.display = 'none';
     document.querySelector('.inicio').style.display = 'none';

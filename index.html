@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&display=swap" rel="stylesheet">
     <title>Duck game</title>
 </head>
 <body>
     <div class="area-int">
-
-        <div class="name">
-            <input type="text" placeholder="nome do seu pet">
-        </div>
-        <div class="area-start">
-            <button class="exibir">mostrar</button>
-        </div>
-        <div class="area-duck">
-            <div class="button">
-
+        <audio class="music" loop autoplay>
+            <source src="./images-duck-game/duck-song.wav" type="audio/wav">
+        </audio>
+        <div class="inicio">
+            <div class="inicio-int">
+                <div class="campo">
+                    <input type="text" placeholder="nome do seu pet" class="nome">
+                </div>
+                <div class="name">
+                    <img src="images-duck-game/logo-game.png">
+                    
+                </div>
+                <div class="area-start">
+                    <button class="exibir">PLAY</button>
+                </div>
             </div>
+        </div>
+        
+        <div class="area-duck">
             <div class="clothes">
                 
             </div>
+            <div class="pet"></div>
             <div class="duck">
+                <img src="images-duck-game/brilho.gif" class="brilho">
                 <img src="images-duck-game/duck.png" class="duckImg">
                 <img src="" class="rpa">
                 <img src="" class="rpa2">
             </div>
-            
         </div>
 
     </div>

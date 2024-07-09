@@ -6,9 +6,77 @@ body {
     display: flex;
     justify-content: center;
 }
-.area-start {
+.inicio {
     display: flex;
     justify-content: center;
+}
+.inicio-int {
+    width: 400px;
+    height: 100vh;
+    background-image: url('images-duck-game/background.png');
+    background-position: center;
+    background-size: cover;
+}
+.campo {
+    margin-top: 35%;
+    margin-bottom: 10%;
+    text-align: center;
+}
+.campo input {
+    background: linear-gradient(to left, #8b612d, #381e1b) ;
+    padding: 3%;
+    color: rgb(244, 204, 204);
+    font-family: "Margarine", sans-serif;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 50px;
+    border: 2px solid rgb(244, 204, 204);
+    outline: none;
+}
+.campo input::placeholder {
+    color: rgb(244, 204, 204);
+    font-size: 18px;
+}
+.name {
+    display: flex;
+    justify-content: center;
+}
+.name img {
+    width: 250px;
+}
+.pet {
+    text-align: center;
+}
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+audio {
+    display: none;
+}
+.area-start {
+    text-align: center;
+}
+.area-start button {
+    background-color: rgb(68, 193, 15);
+    font-size: 25px;
+    padding: 3%;
+    color: white;
+    font-family: "Margarine", sans-serif;
+    width: 150px;
+    border: 1px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #333;
+    animation: pulsate 1s infinite;
+
 }
 .area-duck {
     display: none;
@@ -53,4 +121,54 @@ body {
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
+}
+.brilho {
+    position: fixed;
+    display: none;
+}
+.armario {
+    display: flex;
+    align-items: center;
+    height: 130px;
+    background-color: rgb(244, 204, 204);
+    border-radius: 30px;
+    margin-left: 2%;
+    margin-top: 2%;
+    box-shadow: 5px 5px 5px #333;
+}
+
+.clothes::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+.clothes::-webkit-scrollbar-track {
+    background: rgb(244, 204, 204);; /* Cor da trilha da barra de rolagem */
+}
+
+.clothes::-webkit-scrollbar-thumb {
+    background-color: rgb(249, 183, 183);; /* Cor do polegar da barra de rolagem */
+    border-radius: 10px; /* Bordas arredondadas do polegar */
+    border: 2px solid #f1f1f1; /* Adicionar borda ao polegar */
+}
+
+.clothes::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(251, 152, 152);; /* Cor do polegar quando estiver em hover */
+}
+.pet {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 40%;
+    top: 50%;
+    text-shadow: 5px 5px 5px #fff;
+    animation: pulsate 1s infinite;
+}
+.pet span {
+    color: #f1f1f1;
+    font-family: "Margarine", sans-serif;
+    font-size: 40px;
+    color: rgb(68, 193, 15);
+}
+.pet p {
+    color: red;
 }

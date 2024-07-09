@@ -31,8 +31,13 @@ const clothesMap = {
 
 function exibirArea() {
     document.querySelector('.name').style.display = 'none';
-    document.querySelector('.area-start').style.display = 'none';
+    document.querySelector('.inicio').style.display = 'none';
     document.querySelector('.area-duck').style.display = 'flex';
+    let pet = document.querySelector('.nome').value
+    
+    const text = pet
+    const wrappedText = text.split('').map(letter => `<span>${letter}</span>`).join('') + "<p> closet's </p>";
+    document.querySelector('.pet').innerHTML = wrappedText
 
     const clothesContainer = document.querySelector('.clothes');
     clothesContainer.innerHTML = '';
@@ -40,6 +45,7 @@ function exibirArea() {
     function roupClick(event) {
         const clickedSrc = new URL(event.target.src).href;
         let clickedItem = clothes.find(item => new URL(item.imgUrl, location.href).href === clickedSrc);
+        const quackSound = new Audio('./images-duck-game/clique.wav');
 
         if (!clickedItem) {
             clickedItem = clothes1.find(item => new URL(item.imgUrl, location.href).href === clickedSrc);
@@ -59,12 +65,38 @@ function exibirArea() {
                     duckElement.style.left = '';
                     duckElement.style.top = '';
                 } else {
-                    duckElement.src = matchedItem.imgUrl;
-                    duckElement.style.width = matchedItem.width;
-                    duckElement.style.left = matchedItem.left || 'initial';
-                    duckElement.style.top = matchedItem.top || 'initial';
+                    // Criar uma nova imagem para pré-carregar
+                    const img = new Image();
+                    img.onload = function() {
+                        // Ocultar .brilho enquanto carrega a imagem
+                        document.querySelector('.brilho').style.display = 'none';
                 
+                        duckElement.src = matchedItem.imgUrl;
+                        duckElement.style.width = matchedItem.width;
+                        duckElement.style.left = matchedItem.left || 'initial';
+                        duckElement.style.top = matchedItem.top || 'initial';
+                
+                        // Exibir .brilho após a imagem ser carregada e antes de iniciar o timer
+                        document.querySelector('.brilho').style.display = 'block';
+                
+                        function startTimer() {
+                            let seconds = 0;
+                            const interval = setInterval(() => {
+                                seconds++;
+                                if (seconds === 2) {
+                                    document.querySelector('.brilho').style.display = 'none';
+                                    clearInterval(interval); // Para o intervalo após 2 segundos
+                                }
+                            }, 1000); // Intervalo de 1 segundo (1000 milissegundos)
+                        }
+                
+                        // Para iniciar o timer, chame a função startTimer
+                        startTimer();
+                    };
+                    img.src = matchedItem.imgUrl; // Iniciar o carregamento da imagem
+                    quackSound.play()
                 }
+                
             } else {
                 let rpaElement;
 
@@ -83,11 +115,32 @@ function exibirArea() {
                     rpaElement.style.top = '0';
                     
                 } else {
-                    rpaElement.src = clickedItem.imgUrl;
-                    rpaElement.style.width = clickedItem.width;
-                    rpaElement.style.height = clickedItem.height;
-                    rpaElement.style.left = clickedItem.left || 'initial';
-                    rpaElement.style.top = clickedItem.top || 'initial';
+                    const img = new Image()
+                    img.onload = function() {
+
+                        document.querySelector('.brilho').style.display = 'none';
+                        rpaElement.src = clickedItem.imgUrl;
+                        rpaElement.style.width = clickedItem.width;
+                        rpaElement.style.height = clickedItem.height;
+                        rpaElement.style.left = clickedItem.left || 'initial';
+                        rpaElement.style.top = clickedItem.top || 'initial';
+
+                        document.querySelector('.brilho').style.display = 'block';
+
+                        function startTimer() {
+                            let seconds = 0;
+                            const interval = setInterval(() => {
+                                seconds++;
+                                if (seconds === 2) {
+                                    document.querySelector('.brilho').style.display = 'none';
+                                    clearInterval(interval); // Para o intervalo após 2 segundos
+                                }
+                            }, 1000); // Intervalo de 1 segundo (1000 milissegundos)
+                        }
+                        startTimer();
+                    }
+                    img.src = clickedItem.imgUrl
+                    quackSound.play()
                 }
             }
         } else {
@@ -98,13 +151,15 @@ function exibirArea() {
     clothes.forEach(item => {
         let rous = document.createElement('div');
         let imgs = document.createElement('img');
-        imgs.width = 180;
+        imgs.width = 150;
         imgs.src = item.imgUrl;
         imgs.style.cursor = 'pointer';
         imgs.addEventListener('click', roupClick);
+        rous.classList.add('armario')
 
         rous.appendChild(imgs);
         clothesContainer.appendChild(rous);
+
     });
 }
 
